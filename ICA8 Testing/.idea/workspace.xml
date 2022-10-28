@@ -36,12 +36,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.urinalsTest">
+  <component name="RunManager" selected="JUnit.urinalsTest.countUrinals">
     <configuration name="urinalsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ICA8 Testing" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="urinalsTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="urinalsTest.countUrinals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ICA8 Testing" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="urinalsTest" />
+      <option name="METHOD_NAME" value="countUrinals" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -68,6 +78,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.urinalsTest.countUrinals" />
         <item itemvalue="JUnit.urinalsTest" />
         <item itemvalue="JUnit.urinalsTest.urinalFileExistsTest" />
         <item itemvalue="JUnit.urinalsTest.readFileNotFoundExceptionTest" />
