@@ -13,11 +13,12 @@ public class urinals {
     public static final String LENGTH_REGEX = "^[0-1]{1,20}$";
     public static final String SIDE_REGEX = "11";
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         ArrayList<String> line;
         ArrayList<Integer> outputNumbers;
         line = readFile(INPUT_FILE);
         outputNumbers = processInput(line);
+        writeOutput(outputNumbers);
     }
     public static ArrayList<String> readFile(String fileName) throws FileNotFoundException {
         FileReader file = new FileReader(fileName);
@@ -86,5 +87,16 @@ public class urinals {
         Matcher sideMatcher = sidePattern.matcher(lines);
 
         return lengthMatcher.find() & !sideMatcher.find();
+    }
+
+
+    public static void writeOutput(ArrayList<Integer> outputNumbers) throws IOException {
+        File f = new File("res/rule.txt");
+        FileWriter writer = new FileWriter(f);
+        for (int i : outputNumbers) {
+            writer.write(String.valueOf(i));
+            writer.write("\n");
+        }
+        writer.close();
     }
 }

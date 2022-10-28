@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -37,14 +38,16 @@ class urinalsTest {
         ArrayList<Integer> trial = new ArrayList<>();
         list.add(("1111"));
         list.add(("10101"));
-        list.add(("01010010100101001010"));
-        list.add(("010100101001010010101"));
+        list.add(("0101001010"));
+        list.add(("0101001010100101011"));
         list.add(("10101101011010110101"));
+        list.add(("1010100101010101010101010000101001"));
         list.add(("asd"));
         list.add(("12345"));
         trial.add(-1);
         trial.add(0);
         trial.add(0);
+        trial.add(-1);
         trial.add(-1);
         trial.add(-1);
         trial.add(-1);
@@ -55,4 +58,15 @@ class urinalsTest {
         System.out.println("====== Soham Prabhakar Patil == TEST THREE EXECUTED =======");
     }
 
+    @org.junit.jupiter.api.Test
+    void writeFilesIOExceptionTest() throws IOException {
+        urinals u = new urinals();
+        ArrayList<Integer> trial = new ArrayList<>();
+        trial.add(0);
+        trial.add(1);
+        trial.add(2);
+        trial.add(-1);
+        u.writeOutput(trial);
+        System.out.println("====== Soham Prabhakar Patil == TEST FOUR EXECUTED =======");
+    }
 }
