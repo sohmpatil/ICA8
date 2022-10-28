@@ -17,9 +17,11 @@ public class urinals {
         FileReader file = new FileReader(fileName);
         ArrayList<String> list = new ArrayList<>();
         Scanner line = new Scanner(file);
+
         while (line.hasNextLine()) {
             list.add(line.nextLine());
         }
+
         return list;
     }
 
