@@ -92,6 +92,11 @@ public class urinals {
 
     public static void writeOutput(ArrayList<Integer> outputNumbers) throws IOException {
         File f = new File("res/rule.txt");
+        int count = 1;
+        while (f.exists()) {
+            f = new File("res/rule" + count + ".txt");
+            count++;
+        }
         FileWriter writer = new FileWriter(f);
         for (int i : outputNumbers) {
             writer.write(String.valueOf(i));

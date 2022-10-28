@@ -69,4 +69,16 @@ class urinalsTest {
         u.writeOutput(trial);
         System.out.println("====== Soham Prabhakar Patil == TEST FOUR EXECUTED =======");
     }
+
+    @org.junit.jupiter.api.Test
+    void writeFilesDuplicateTest() throws IOException {
+        urinals u = new urinals();
+        ArrayList<Integer> trial = new ArrayList<>();
+        trial.add(0);
+        trial.add(1);
+        trial.add(2);
+        trial.add(-1);
+        u.writeOutput(trial);
+        System.out.println("====== Soham Prabhakar Patil == TEST FIVE EXECUTED =======");
+    }
 }
