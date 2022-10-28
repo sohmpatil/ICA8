@@ -1,10 +1,13 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Soham Prabhakar Patil
+ *
+ */
 class urinalsTest {
 
     @org.junit.jupiter.api.Test
@@ -78,6 +81,7 @@ class urinalsTest {
         trial.add(1);
         trial.add(2);
         trial.add(-1);
+        u.writeOutput(trial);
         u.writeOutput(trial);
         System.out.println("====== Soham Prabhakar Patil == TEST FIVE EXECUTED =======");
     }
