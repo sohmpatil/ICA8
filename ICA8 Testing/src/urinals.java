@@ -22,6 +22,10 @@ public class urinals {
             list.add(line.nextLine());
         }
 
+        if (list.size() == 0) {
+            return list;
+        }
+
         return list;
     }
 

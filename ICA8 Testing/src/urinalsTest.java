@@ -22,9 +22,9 @@ class urinalsTest {
         String check = "res/urinals.dat";
         try {
             u.readFile(check);
+            System.out.println("====== Soham Prabhakar Patil == TEST TWO EXECUTED =======");
         } catch (final FileNotFoundException e) {
             assertEquals("res/urinals.dat (No such file or directory)", e.getMessage());
-            System.out.println("====== Soham Prabhakar Patil == TEST TWO EXECUTED =======");
         }
     }
 }
