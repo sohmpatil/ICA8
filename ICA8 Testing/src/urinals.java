@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Soham Prabhakar Patil
@@ -8,6 +10,8 @@ import java.util.Scanner;
  */
 public class urinals {
     public static final String INPUT_FILE = "res/urinals.dat";
+    public static final String LENGTH_REGEX = "^[0-1]{1,20}$";
+    public static final String SIDE_REGEX = "11";
 
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<String> line;
@@ -31,27 +35,56 @@ public class urinals {
         ArrayList<Integer> output = new ArrayList<>();
 
         for (int i = 0; i < line.size(); i++) {
-            String urinals = line.get(i);
-            int totalUrinals = urinals.length();
-            int count;
-            count = 0;
-
-            for (int j = 1; j < totalUrinals - 1; j++) {
-                if (urinals.charAt(j - 1) == '0' && urinals.charAt(j + 1) =='0' && urinals.charAt(j) == '0') {
-                    count++;
-                    StringBuilder string = new StringBuilder(urinals);
-                    string.setCharAt(i, '1');
-                    urinals = String.valueOf(string);
-                }
+            if (!checkIfValidString(line.get(i))) {
+                output.add(-1);
+            } else {
+                int x = maxOpenUrinals(line.get(i));
+                output.add(x);
             }
-
-            if (urinals.charAt(totalUrinals - 1) == '0' && urinals.charAt(totalUrinals - 2) == '0') {
-                count++;
-            }
-
-            output.add(count);
         }
         return output;
     }
 
+    public static int maxOpenUrinals(String lines) {
+        int cnt = 0;
+        int itr;
+        StringBuilder line = new StringBuilder(lines);
+
+        if(line.length() == 1 && line.charAt(0) == '0') {
+            return 1;
+        }
+
+        if(line.length() == 2 && ((line.charAt(0) == '0') & (line.charAt(1) == '0'))) {
+            return 1;
+        }
+
+        if ((line.charAt(0) == '0' ) && (line.charAt(1) == '0')) {
+            line.setCharAt(0, '1');
+            cnt++;
+        }
+
+        for (itr = 1; itr < line.length() - 1; itr++) {
+            if (line.charAt(itr) == '0' && (line.charAt(itr-1) == '0') & (line.charAt(itr+1) == '0')) {
+                cnt++;
+                line.setCharAt(itr, '1');
+            }
+        }
+
+        if (line.charAt(line.length() - 1) == '0' && line.charAt(line.length() - 2) == '0') {
+            cnt++;
+            line.setCharAt(itr, '1');
+        }
+
+        return cnt;
+    }
+
+    public static boolean checkIfValidString(String lines) {
+        Pattern lengthPattern = Pattern.compile(LENGTH_REGEX);
+        Pattern sidePattern = Pattern.compile(SIDE_REGEX);
+
+        Matcher lengthMatcher = lengthPattern.matcher(lines);
+        Matcher sideMatcher = sidePattern.matcher(lines);
+
+        return lengthMatcher.find() & !sideMatcher.find();
+    }
 }
